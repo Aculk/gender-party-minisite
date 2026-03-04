@@ -1,0 +1,219 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>GENDER PARTY</title>
+
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+
+  <!-- favicon: red heart -->
+  <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%2032%2032'%3E%3Cpath%20fill='%23e11d48'%20d='M23.6%204.6c-2.3%200-4.4%201.1-5.6%202.9C16.8%205.7%2014.7%204.6%2012.4%204.6%208.9%204.6%206%207.5%206%2011c0%208%2010%2015.4%2010%2015.4S26%2019%2026%2011c0-3.5-2.9-6.4-6.4-6.4z'/%3E%3C/svg%3E">
+</head>
+<body>
+  <div class="site-wrapper">
+
+    <!-- 1) Обложка -->
+    <section class="page page-1" data-bg="assets/photo1.jpg">
+      <div class="content content--hero">
+        <h1 class="hero hero--top" data-animate>
+          <span class="hero-top">Gender</span>
+          <span class="hero-bottom">Party</span>
+        </h1>
+
+        <a href="#" class="btn btn--hero" id="scrollButton1" data-animate>
+          Подробнее о событии
+        </a>
+      </div>
+    </section>
+
+    <!-- 2) Приглашение + календарь -->
+    <section class="page page-2" id="eventPage" data-bg="assets/photo2.jpg">
+      <div class="content cardish">
+        <h2 class="title" data-animate>Дорогие гости!</h2>
+
+        <p class="text" data-animate>
+          Приглашаем вас на нашу гендер-пати!<br>
+          Мы узнаем пол малыша и будем счастливы<br>
+          разделить этот момент с вами 💛
+        </p>
+
+        <div class="calendar-wrap" data-animate>
+          <div class="month-year">Март, 2026</div>
+
+          <div class="calendar">
+            <div class="weekdays">
+              <span>ПН</span><span>ВТ</span><span>СР</span><span>ЧТ</span><span>ПТ</span><span>СБ</span><span>ВС</span>
+            </div>
+            <div class="days-grid" id="calendarDays"></div>
+          </div>
+
+          <div class="note">★ Ждём вас 28 марта</div>
+        </div>
+
+        <a href="#" class="btn" id="scrollButton2" data-animate>
+          Детали и голосование
+        </a>
+      </div>
+    </section>
+
+    <!-- 3) Детали + голосование (дизайн как на скрине) -->
+    <section class="page page-3" id="detailsPage" data-bg="assets/photo2.jpg">
+      <div class="content cardish">
+        <p class="lead" data-animate>
+          Мы узнаем пол нашего малыша<br>
+          <span class="highlight">и хотим разделить это счастье с вами!</span>
+        </p>
+
+        <div class="details" data-animate>
+          <div class="detail-line">
+            <i class="fa-solid fa-location-dot"></i>
+            <span><b>Lech and Maria Kaczynski Park</b>, Batumi</span>
+          </div>
+          <div class="detail-line">
+            <i class="fa-regular fa-calendar"></i>
+            <span>28.03.2026</span>
+          </div>
+          <div class="detail-line">
+            <i class="fa-regular fa-clock"></i>
+            <span>14:00</span>
+          </div>
+
+          <a class="btn btn--ghost" href="https://yandex.com.ge/maps/-/CPqtAQzr" target="_blank" rel="noopener">
+            <i class="fa-solid fa-map"></i>
+            На карте
+          </a>
+        </div>
+
+        <div class="vote-card" data-animate>
+          <div class="vote-card-title">Ваши предположения<br>по полу малыша?</div>
+
+          <div class="vote-bubbles">
+            <button class="bubble" type="button" data-gender="boy" aria-label="Мальчик">
+              <span class="bubble-icon">🩵</span>
+              <span class="bubble-count" id="boyCount">0</span>
+            </button>
+
+            <button class="bubble" type="button" data-gender="girl" aria-label="Девочка">
+              <span class="bubble-icon">🩷</span>
+              <span class="bubble-count" id="girlCount">0</span>
+            </button>
+          </div>
+
+          <button class="bubble-wide" type="button" data-gender="twins" aria-label="Двойня">
+            👯 Двойня <span class="bubble-count" id="twinsCount">0</span>
+          </button>
+
+          <div class="small muted center" id="voteNote">
+            Нажмите, чтобы проголосовать
+          </div>
+        </div>
+
+        <!-- УБРАЛИ кнопку "RSVP и контакты" -->
+      </div>
+    </section>
+
+    <!-- 4) Пожелания + Анкета (как на скрине 5) -->
+    <section class="page page-4" id="rsvpPage" data-bg="assets/photo2.jpg">
+      <div class="content cardish">
+        <h3 class="title" data-animate>Пожелания</h3>
+
+        <p class="text muted center" data-animate>
+          Будем благодарны, если при выборе подарка<br>
+          вы будете ориентироваться на наш WISH LIST
+        </p>
+
+        <div class="center" data-animate>
+          <a class="btn btn--ghost btn--thin" href="#" id="wishlistButton">Выбрать</a>
+        </div>
+
+        <div class="sep" data-animate></div>
+
+        <h3 class="title" data-animate>Анкета</h3>
+
+        <div class="form" data-animate>
+          <label class="field">
+            <span class="field-label">Ваши ФИО</span>
+            <input type="text" class="input" id="fioInput" placeholder="Ваши ФИО">
+            <div class="saved" id="savedFio"></div>
+          </label>
+
+          <div class="spacer"></div>
+
+          <div class="field-label">Сможете ли присутствовать?</div>
+
+          <label class="radio">
+            <input type="radio" name="attendance" value="yes">
+            <span>Я с удовольствием приду</span>
+          </label>
+
+          <label class="radio">
+            <input type="radio" name="attendance" value="no">
+            <span>К сожалению, не смогу</span>
+          </label>
+
+          <!-- УБРАЛИ кнопку OK и кнопку "К таймеру" -->
+          <button class="btn" id="submitAttendance" type="button">Отправить</button>
+          <div class="status" id="attendanceStatus"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5) Контакты + таймер (без Назад/Наверх) -->
+    <section class="page page-5" id="contactPage" data-bg="assets/photo2.jpg">
+      <div class="content cardish">
+        <h3 class="title" data-animate>До встречи!</h3>
+        <p class="text muted center" data-animate>Если будут вопросы — напишите в Telegram</p>
+
+        <div class="actions" data-animate>
+          <a class="btn btn--ghost" href="tel:+995557624152">
+            <i class="fa-solid fa-phone"></i>
+            +995 557 624 152
+          </a>
+
+          <a class="btn btn--tg" href="https://t.me/vptichka8" target="_blank" rel="noopener">
+            <i class="fab fa-telegram"></i>
+            Telegram
+          </a>
+        </div>
+
+        <div class="timer" data-animate>
+          <div class="subtitle center">До события осталось</div>
+
+          <div class="timer-grid" id="timer">
+            <div class="t">
+              <div class="tv" id="days">00</div>
+              <div class="tl">дней</div>
+            </div>
+            <div class="t">
+              <div class="tv" id="hours">00</div>
+              <div class="tl">часов</div>
+            </div>
+            <div class="t">
+              <div class="tv" id="minutes">00</div>
+              <div class="tl">минут</div>
+            </div>
+            <div class="t">
+              <div class="tv" id="seconds">00</div>
+              <div class="tl">секунд</div>
+            </div>
+          </div>
+
+          <div class="small center muted">28.03.2026 • 14:00 • Batumi</div>
+        </div>
+
+        <!-- УБРАЛИ кнопки Назад и Наверх -->
+      </div>
+    </section>
+
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
